@@ -54,3 +54,103 @@ FINALMENTE LA FUNCION linker coordina toda la orquesta para obtener el resultado
 
 
 explicacion en video : https://www.youtube.com/watch?v=bUCT6NRsoc8
+
+
+ATENCION ESTE ES UNO DE LOS MOTIVOS POR LOS CUALES ESTAS FUNCIONES NO ESTAN LISTAS PARA PRODUCCION :
+OBSERBA EL PATRON SIGUIENTE :
+
+<header><!-- 2 container/ -->
+        <h1>...</h1><!-- 3 block/ -->
+        <div><!-- 4 container/ -->
+                <button>...</button><!-- 5 block/ -->
+        </div><!-- cerradura que se perdera -->
+</header><!-- cerradura que se perdera -->
+<main><!-- 6 container/ -->
+......
+......
+......
+</main>
+
+COMO PUEDES OBSERVAR EN LA LOGICA DE LAS SIGUIENTES ITERACIONES EL CODIGO FUNCIONA CON PATRONES SIMILARES A ESTE :
+
+<DIV>
+   <DIV>
+      <DIV></DIV>
+      <DIV></DIV>
+   </DIV>
+</DIV>
+
+PORQUE EFECTIVAMENTE NO HAY NINGUN PROBLEMA PORQUE LAS CERRADURAS QUEDAN AL FINAL PORQUE NO HAY 
+CONTENEDORES FUERA DEL CONTENEDOR INICIAL
+
+SIN EMBARGO EN EL SIGUIENTE PATRON :
+
+<DIV>
+   <DIV></DIV>
+   <DIV>
+      <DIV></DIV>
+    </DIV> 
+</DIV>
+<DIV>
+   <DIV></DIV>
+</DIV>
+
+COMO SE OBSERVA ESTE PATRON PRESENTA CARACTERISTICAS MISTAS PORQUE EFECTIVAMENTE 
+CONTIENE CONTENEDORES PERO QUE ES NECESARIO CERRAR EL ELEMENTO EN ALGUN PUNTO ANTES QUE
+LA ITERACION LLEGUE AL FINAL.
+
+POR CONSECUENCIA EL SIGUIENTE CODIGO NO FUNCIONARA SI LO QUE SE QUIERE ES GENERAR GRANDES
+CANTIDADES DE ELEMENTOS CON PATRONES SIMILARES , PERO LO QUE SI ES POSIBLE ES UTILIZAR
+linker moderadamente POR EJEMPLO SI TENEMOS EL SIGUIENTE PATRON: 
+
+<DIV>
+   <DIV></DIV>
+   <DIV>
+      <DIV></DIV>
+    </DIV> 
+</DIV>
+<DIV>
+   <DIV></DIV>
+</DIV>
+
+PARA QUE LA FUNCION Y SU CONJUNTO DE ALIADOS SEAN UTILES ES NECESARIO DIVIDIR 
+EL PATRON ANTERIOR EN DOS LLAMAS DISTINTAS INDICANDOLE EL PATRON QUE SE ADAPTE 
+A NUESTRAS NECESIDADES , AQUI SE APLICA EL DIVIDE Y VENCERAS COMO TE MUESTRO ACONTINUACION:
+
+for($i = 0; $i < count($patron); $i++){
+        if($patron[$i] == 'container'){
+                array_push($estructura,$elements[$i]);
+                array_push($cerraduras,'</div>');
+        }else if($patron[$i] == 'block'){
+                array_push($estructura,$elements[$i]);
+                array_push($estructura,'</div>');
+        }
+}
+for($i = 0; $i < count($cerraduras); $i++){
+        array_push($estructura,$cerraduras[$i]);
+}
+
+ENTONCES PARA QUE EL CODIGO ANTERIOR FUNCIONE EN VEZ DE PENSAR EN METER UNA ENORME CARGA
+DIVIDIMOS EL PATRON ANTERIOR EN DOS DE ESTA FORMA:
+
+PARTE 1:
+<DIV>
+   <DIV></DIV>
+   <DIV>
+      <DIV></DIV>
+    </DIV> 
+</DIV>
+PODEMOS OBSERVAR QUE AL DIVIDIR EL PATRON LA PARTE UNO SE ADAPTA SATISFACTORIAMENTE A LA LOGICA ANTERIOR
+Y PODEMOS RESOLVER LA PARTE 1 CON EL SIGUIENTE COMANDO :
+
+4_true_container/block/container/block
+
+PARTE 2:
+<DIV>
+   <DIV></DIV>
+</DIV>
+Y LA PARTE 2 LA RESOLVEMOS CON EL SIGUIENTE COMANDO:
+
+2_true_container/block
+
+MANTENTE AL TANTO DE LAS NUEVAS ACTUALIZACIONES , ES TODO POR HOY =)
