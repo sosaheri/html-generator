@@ -156,22 +156,3 @@ Y LA PARTE 2 LA RESOLVEMOS CON EL SIGUIENTE COMANDO:
 2_true_container/block
 
 MANTENTE AL TANTO DE LAS NUEVAS ACTUALIZACIONES , ES TODO POR HOY =)
-
-22/08/2020 checkpoint
-
-***IDEA DE COMUNIDAD PARA LA CREACION Y ADMINISTRACION DE PATRONES HTML PARA LA CREACION DE PAGINAS WEB DINAMICAS***
-
-PARA LOGRAR CONSOLIDAR UNA COMUNIDAD A LARGO PLAZO INICIAREMOS CON LA BASE DE DATOS : patternFinder
-
-LA CUAL TENDRA INICIALMENTE LA TABLA: patron y contendra la siguiente estructura:
-
-|*******************************************************************************************|
-|######### ID ######## COMANDO ######## PATTERN ######## BUSQUEDA_KEYWORDS #################|
-|*******************************************************************************************|
-|######### 1 ######### 4-hh1db ######### <Header>                #  header-h1-div-boton ####|
-|                                           <H1></h1>                                       |
-|                                           <Div>                                           |
-|                                              <Button></button>                            |
-|                                           </div>                                          |
-|                                        </header>                                          |
-*********************************************************************************************

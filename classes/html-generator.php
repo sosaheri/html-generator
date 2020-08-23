@@ -1,6 +1,20 @@
 <?php
 
     class tag{
+
+        private $cantidadElementos;
+        private $ids;
+        private $clases;
+        private $orden;
+
+        public function __set($atributo,$valor){
+            $this->$atributo=$value;
+        }
+
+        public function __get($atributo){
+            return $this->$atributo;
+        }
+
         static function get_tag($comando=null,$id=null,$clase=null,$content=null){
             if(!isset($comando)){
                 trigger_error("ingresa por lo menos el primer parametro",E_USER_ERROR);
@@ -41,13 +55,10 @@
             }
         }
 
-        public function __set($atributo,$valor){
-            $this->$atributo=$value;
+        static function get_tags(){
+
         }
 
-        public function __get($atributo){
-            return $this->$atributo;
-        }
     }
 
 ?>
