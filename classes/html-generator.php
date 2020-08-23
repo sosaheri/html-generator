@@ -30,7 +30,7 @@
                                 return "<div id=\"{$id}\">{$content}</div>";
                             }else{
                                 if(isset($clase) && isset($content)){
-                                    return "<div class=\"{$clse}\">{$content}</div>";
+                                    return "<div class=\"{$clase}\">{$content}</div>";
                                 }else{
                                     if(isset($id)){
                                         return '<div id="'.$id.'"></div>';

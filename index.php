@@ -7,7 +7,8 @@
 </head>
 <body>
 <?php 
-    require_once 'classes/html-generator.php';
+require_once 'classes/html-generator.php';
+require_once 'static/comandos.php';
     $p4wsProgrammingLanguage = array(#version 1 beta / en desarrollo
         'container(div)/
             container(header)/
@@ -36,7 +37,7 @@
             nlcontainer(footer)/\(footer)
         \(div)
     ');
-    require_once 'static/comandos.php';
+    
     echo executethis(container,'hello word','\(div)');
     #AHORA SI QUISIERA REALIZAR EL MISMO PATRON QUE GENERA EL COMANDO
     #4-div_4-!class_container/contariner/block/block 
@@ -79,6 +80,18 @@
     echo executethis(container,executethis(container,$block,'\(div)'),'\(div)');*/
     #GENERANDO EL PATRON ANTES MENCIONADO LIMPIO E IDENTICO Y PORSUPUESTO RAPIDAMENTE EN AUTOMATICO
     #MANTENTE AL PENDIENTE DE NUEVAS APTUALIZCIONES HASTA LA PROXIMA =)
+    #podemos combinar executethis() y get_tag() para generar construcciones mas eleboradas por ejemplo:
+    
+    $tag = new tag();
+    echo $tag->get_tag('div',null,'complexDiv',executethis(container,null,'\(div)'));
+
+    /**
+     * EL PROGRAMA ANTERIOR PRODUCIRA EL SIGUIENTE RESULTADO:
+     * 
+     * <div class="complexDiv">
+     *      <div></div>
+     * </div>
+     */
 ?>
 </body>
 </html>
