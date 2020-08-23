@@ -165,7 +165,7 @@ require_once 'static/comandos.php';
     #AHORA SI QUISIERA REALIZAR EL MISMO PATRON QUE GENERA EL COMANDO
     #4-div_4-!class_container/contariner/block/block 
     #con la funcion linker quedaria de esta forma:
-    
+
         require_once 'functions/start.php';
         require_once 'functions/omision.php';
         require_once 'functions/mezclar.php';
@@ -200,9 +200,11 @@ require_once 'static/comandos.php';
      * el cual se encarga DE DEVOLVERNOS EL PATRON ECXACTAMENTE COMO SE LO PIDAMOS
      * POR EJEMPLO PARA PRODUCIR EL PATRON ANTERIOR DE 4 DIVS UTILIZANDO executethis quedaria de esta forma:
      */
-    /*$block = executethis(container,null,'\(div)');
+     
+    $block = executethis(container,null,'\(div)');
     $block .= executethis(container,null,'\(div)');
-    echo executethis(container,executethis(container,$block,'\(div)'),'\(div)');*/
+    echo executethis(container,executethis(container,$block,'\(div)'),'\(div)');
+
     #GENERANDO EL PATRON ANTES MENCIONADO LIMPIO E IDENTICO Y PORSUPUESTO RAPIDAMENTE EN AUTOMATICO
     #MANTENTE AL PENDIENTE DE NUEVAS APTUALIZCIONES HASTA LA PROXIMA =)
     #podemos combinar executethis() y get_tag() para generar construcciones mas eleboradas por ejemplo:
