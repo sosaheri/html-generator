@@ -1,6 +1,6 @@
 <?php
 
-function linker($fullCommand,$userClases){
+function linker($fullCommand,$userClases=null){
     $isEmpty = array();
     if(!empty($fullCommand)){
         $comandos = explode("_",$fullCommand);

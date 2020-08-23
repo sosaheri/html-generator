@@ -54,11 +54,24 @@
                 }
             }
         }
-        
+        #solucion al problema de las cerraduras que se pierden
         function get_tags($orden){
             if(!empty($orden)){
                 if(!empty($this->__get('cantidad')) && !empty($this->__get('ids')) && !empty($this->__get('clases')) && !empty($this->__get('comandos'))){
+                    $patron = explode("/",$pattern);
+                    for($i = 0; $i < sizeof($patron); $i++){
+                        if($patron[$i] === 'container'){
+                            
+                        }else if($patron[$i] === 'block'){
+                            
+                        }else if($patron[$i] === 'nlcontainer'){
+                            
+                        }else if($patron[$i] === 'nblock'){
+                            
+                        }else{
 
+                        }
+                    }
                 }else{
 
                 }
