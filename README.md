@@ -56,6 +56,8 @@ FINALMENTE LA FUNCION linker coordina toda la orquesta para obtener el resultado
 explicacion en video : https://www.youtube.com/watch?v=bUCT6NRsoc8
 
 
+UPDATE 1 22/08/2020------------------------------------------------------------------------------------------------------------------------------------
+
 ATENCION ESTE ES UNO DE LOS MOTIVOS POR LOS CUALES ESTAS FUNCIONES NO ESTAN LISTAS PARA PRODUCCION :
 OBSERBA EL PATRON SIGUIENTE :
 

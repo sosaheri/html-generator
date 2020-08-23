@@ -1,0 +1,82 @@
+trigger_error("error al escribir",E_USER_ERROR); esta funcion nos sirve para mostrar mensajes de error personalizados
+
+variable global
+$variable; 
+function global(){
+    global $variable; ahora puedo utilizar la $variable dentro de una funcion
+}
+
+definicion de constantes:
+const CONSTANTE = 'valor';
+define('CONSTANTE','valor');//ventajas se puede utilizar variables y funciones para asignarle un valor
+
+print_r(get_defined_constants(true)); la funcion print_r se utiliza porque la funcion get_defined_constants nos regresa un arreglo
+y echo o print sirven para imprimir cadenas no arreglos.
+ si colo camos true entre los parentesis de get_defined_constants visualizaremos mas detalles.
+
+echo 'sirve', 'para', 'mostrar', 'varias', 'cadenas', 'de', 'caracteres';
+print 'sirve para mostrar una cadena de caracteres';
+
+echo print 'print es mas lento porque retorna un valor entero';
+''-> lo que ves es lo que obtienes
+Las comillas simples reconocen el salto de linea
+
+SINTASIX HEREDOC Y NOWDOC
+
+HEREDOC
+echo <<<identificador
+texto texto dentro de 
+este bloque se pueden utilizar comillas simples 
+comillas dobles , variables y caracteres de escape
+identificador;
+
+NOWDOC
+
+echo <<<'identificador'
+funciona como comillas simples 
+identificador;
+
+interpolacion es utilizar variables en una cadena de caracteres con comillas dobles
+tambien se utilizan {$variable} para interpolar
+
+Extraer y buscar
+
+substr('texto a extraer',6,-8);
+strpos('texto a buscar','buscar',posicion en la que inicia a buscar);
+str_replace('palabra a buscar','reemplazo','texto','cuenta'); el ultimo parametro cuenta el numero de veces que aparece el valor que le indiquemos
+$num = 1;
+$function = 'sprintf';
+$text = 'test %d de %s';
+sprintf($text,$num,$function);para dar formato para especiicar la posicion en la que queremos recibir los argumento se utiliza %2$s o %1$d 
+
+preg_match(patron,texto) / = limitador , ^ = al inicio , $ = al final , (x|y)
+preg_match_all(/\w/,texto,caracteresqueencontro); 
+secuencias escapadas
+expresion regular para validar una fecha : /[0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])(\/|-)(\d{4})/
+
+operador ternario 
+
+true ? 'hola' : 'adios'
+
+exponente 2**2
+
+asignacion por referencia $a=20; $b = &$a;
+
+xor solo tiene que ser un valor verdero
+
+operador binario 
+
+$variable?:'no hay valor';
+
+$variable??'no hay valor';
+
+sizeof()
+
+foreach($arregloMultidimencional as $key=>$value){
+    for($i = 0; $i < sizeof($value); $i++){
+
+    }
+}
+
+list(var,var,var) = arreglo(value,value,value);
+
