@@ -2,10 +2,10 @@
 
     class tag{
 
-        private $cantidadElementos;
+        private $cantidad;
         private $ids;
         private $clases;
-        private $orden;
+        private $comandos;
 
         public function __set($atributo,$valor){
             $this->$atributo=$value;
@@ -15,7 +15,7 @@
             return $this->$atributo;
         }
 
-        static function get_tag($comando=null,$id=null,$clase=null,$content=null){
+        function get_tag($comando=null,$id=null,$clase=null,$content=null){
             if(!isset($comando)){
                 trigger_error("ingresa por lo menos el primer parametro",E_USER_ERROR);
             }else{
@@ -54,9 +54,17 @@
                 }
             }
         }
+        
+        function get_tags($orden){
+            if(!empty($orden)){
+                if(!empty($this->__get('cantidad')) && !empty($this->__get('ids')) && !empty($this->__get('clases')) && !empty($this->__get('comandos'))){
 
-        static function get_tags(){
+                }else{
 
+                }
+            }else{
+                trigger_error("ingresa el patttern",E_USER_ERROR);
+            }
         }
 
     }
