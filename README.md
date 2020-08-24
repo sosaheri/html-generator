@@ -1,10 +1,10 @@
 # html-generator
-require_once 'classes/html-generator.php';
-require_once 'static/comandos.php';
-    echo executethis(container,'hello word','\(div)');
-    #AHORA SI QUISIERA REALIZAR EL MISMO PATRON QUE GENERA EL COMANDO
-    #4-div_4-!class_container/contariner/block/block 
-    #con la funcion linker quedaria de esta forma:
+/*require_once 'classes/html-generator.php';
+*require_once 'static/comandos.php';
+   * echo executethis(container,'hello word','\(div)');
+    *#AHORA SI QUISIERA REALIZAR EL MISMO PATRON QUE GENERA EL COMANDO
+   * #4-div_4-!class_container/contariner/block/block 
+    *#con la funcion linker quedaria de esta forma:*/
 
         require_once 'functions/start.php';
         require_once 'functions/omision.php';
