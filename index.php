@@ -8,8 +8,8 @@
 <body>
 <?php 
     require_once 'classes/html-generator.php';
-    require_once 'static/comandos.php';
-    echo executethis(container,'Piezas4WebSites(CUSTOM hello worLd)','\(div)');
+    $tag = new tag();
+    echo $tag->executethis('container(div)/','Piezas4WebSites(CUSTOM hello worLd)','\(div)');
 ?>
 </body>
 </html>
