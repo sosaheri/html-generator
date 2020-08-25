@@ -1,5 +1,5 @@
 <?php
-    class tag{
+    class r{
         static function _($tag=null,$content=null,$id=null,$clase=null){
             if(!isset($tag)){
                 trigger_error("ingresa por lo menos el primer parametro",E_USER_ERROR);
