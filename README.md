@@ -1,62 +1,27 @@
 # html-generator
-/*require_once 'classes/html-generator.php';
+# war of php classes
+    # tag vs _tag
+    # metodo 1 de tag                                           | metodo 1 de _tag     
+    #get_tag($comando=null,$id=null,$clase=null,$content=null)          start($inicio)
 
+    #crear un div simple con get_tag                            | crear un div simple con start
+    #    tag::get_tag('div');                                            $_tag->start(1);
 
-*require_once 'static/comandos.php';
+    #tag tiene un metodo especial el cual tambien tiene la capacidad de crear un div simple de esta forma:
 
+        #   tag::executethis('container(div)/',null,'\(div)');
 
-echo executethis(container,'hello word','\(div)');
+    #tag tambien posee un metodo get_tags el cual con la configuracion correcta es posible generar tambien un div simple:
 
-        require_once 'functions/start.php';
-        require_once 'functions/omision.php';
-        require_once 'functions/mezclar.php';
-        require_once 'functions/build.php';
-        require_once 'functions/linker.php';
-        foreach(linker('4_true_container/contariner/block/block',array('','','','')) as $x){
-            echo $x;
-        }
+        # tag::get_tags(array('container/'),array('div'),array(null));
 
-    #SIN EMBARGO ESTE METODO NO ES MUY EFICIENTE PORQUE NOS LIMITA A QUE ES OBLIGATORIO CREAR
-    /**
-     * UN ARREGLO Y SI NO QUEREMOS COLOCARLE CLASES PARA CREAR UN PATRO COMO ESTE :
-     *  <DIV>
-     *      <DIV>
-     *          </DIV></DIV>
-     *          </DIV></DIV>
-     *      </DIV>
-     * </DIV>
-     * 
-     * ES NECESARIO PASARLE UN ARREGLO VACIO CON LA MISMA CANTIDAD DE ELEMENTOS DIV QUE QUEREMOS CREAR
-     * SIN EMBARGO EL RESULTADO QUE PRODUCIRA ESTA FORMA ES LA SIGUIENTE:
-     * 
-     * <div class="">
-     *      <div class=""></div>
-     *      <div class=""></div>
-     * </div>
-     * 
-     * COMO PODEMOS OBSERVAR NO ES PARA NADA LO QUE QUEREMOS APARTE LOS DIVS CONSERVAN LA PALABRA RESERVADA CLASS Y ESTA VACIO 
-     * COSA QUE NO TIENE SENTIDO HACER.
-     * 
-     * ES POR ESTE MOTIVO QUE SURGE EL COMANDO executethis()
-     * el cual se encarga DE DEVOLVERNOS EL PATRON ECXACTAMENTE COMO SE LO PIDAMOS
-     * POR EJEMPLO PARA PRODUCIR EL PATRON ANTERIOR DE 4 DIVS UTILIZANDO executethis quedaria de esta forma:
-     */
-     
-    $block = executethis(container,null,'\(div)');
-    $block .= executethis(container,null,'\(div)');
-    echo executethis(container,executethis(container,$block,'\(div)'),'\(div)');
+    # sin embargo start apesar de ser tan limitado tiene una caracteristica que lo convierte en un methodo digno 
+    # de ser utilizado y es que start te permite generar n cantidad de divs seimples y ningun metodo de la clase tag es capas de hacer tal cosa con 
+    #una sola llamada para hacer dos divs por ejemplo es necesario ejecutar cualquier de los metodos disponibles dos veces por ejemplo:
 
-    #GENERANDO EL PATRON ANTES MENCIONADO LIMPIO E IDENTICO Y PORSUPUESTO RAPIDAMENTE EN AUTOMATICO
-    #MANTENTE AL PENDIENTE DE NUEVAS APTUALIZCIONES HASTA LA PROXIMA =)
-    #podemos combinar executethis() y get_tag() para generar construcciones mas eleboradas por ejemplo:
-    
-    $tag = new tag();
-    echo $tag->get_tag('div',null,'complexDiv',executethis(container,null,'\(div)'));
+        #    tag::get_tag('div'); 
+        #    tag::get_tag('div'); 
 
-    /**
-     * EL PROGRAMA ANTERIOR PRODUCIRA EL SIGUIENTE RESULTADO:
-     * 
-     * <div class="complexDiv">
-     *      <div></div>
-     * </div>
-     */
+    # mientras que con start simplemente colocamos la cantidad por ejemplo:
+
+        # start(2);
