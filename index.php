@@ -7,7 +7,7 @@
 <body>
 <?php 
     require_once 'classes/html-generator.php';
-    
+    echo tag::_('div');
 ?>
 </body>
 </html>
