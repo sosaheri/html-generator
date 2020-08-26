@@ -2,8 +2,34 @@
     class r{
         static function _($tag=null,$content=null,$id=null,$clase=null){
             if(!isset($tag)){
-                trigger_error("ingresa por lo menos el primer parametro",E_USER_ERROR);
+                #trigger_error("ingresa por lo menos el primer parametro",E_USER_ERROR);
+                echo "ingresa por lo menos el primer parametro";
             }else{
+
+                if($tag === 'form' && !isset($content) && !isset($id) && !isset($clase)){
+                    #trigger_error("especifica el action, method y los input",E_USER_ERROR);
+                    echo "especifica el action, method y los input";
+                }else if($tag === 'form' && isset($content) && isset($id) && isset($clase)){
+                    if(is_array($content)){
+                        $formulario = "<{$tag} action=\"{$id}\" method=\"{$clase}\">";
+                        for($i = 0; $i < sizeof($content); $i++){
+                            $formulario .= $content[$i];
+                        } 
+                        $formulario .= "</{$tag}>";
+                        return $formulario;
+                    }else{
+                        echo "los formularios llevan inputs para funcionar";
+                    }
+                }else if($tag === 'input' && isset($content) && isset($id) && isset($clase)){
+                    if(is_array($content)){
+                        echo "los inputs no pueden llevar contenido dentro solo atributos";
+                    }else{
+                        return "<{$tag} type=\"{$content}\" name=\"{$id}\" id=\"{$clase}\">";
+                    }
+                }else if($tag === 'input' && $content === 'submit' && isset($id) && !isset($clase)){
+                    return "<{$tag} type=\"{$content}\" value=\"{$id}\">";
+                }else{
+                ############################################################################################################################
                 if(isset($id) && isset($clase) && isset($content)){
                     if(is_array($content)){
                         $estructura = "<{$tag} id=\"{$id}\" class=\"{$clase}\">";
@@ -69,6 +95,9 @@
                         }
                     }
                 }
+                ############################################################################################################################
+                }
+
             }
         }
     }

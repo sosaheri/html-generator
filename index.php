@@ -6,7 +6,7 @@
 <body>
 <?php 
     require_once 'classes/html-generator.php';
-    echo r::_('div',array(r::_('header',r::_('nav','nav inside the header')),r::_('nav','nav outside the header')));
+    echo r::_('div','Hello World');
 ?>
 </body>
 </html>
