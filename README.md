@@ -1,5 +1,5 @@
 # html-generator
-just use this class for make html tags faster 
+just use this class for make html tags or your own xhml tags 
 
 for example how to make a div:
 
