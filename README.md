@@ -29,5 +29,4 @@ now r can make forms if you want to create a simple form with a text field and t
 
 r::_('form',array(r::_('input','text','nombre','name'),r::_('input','submit','enviar')),'action.php','post');
 
-
-
+of course you can add as many inputs as you want ;)
