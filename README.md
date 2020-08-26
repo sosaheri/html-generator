@@ -61,3 +61,10 @@ the first position of the array is used for the id identifider and the second fo
 you can add -id in the end of the className parameter for add a single id to your image like this: 
 
 r::_('img','./','imagen con un id','name-id');
+
+the output will be :
+
+<*img src="path" alt="description" id="name"> 
+
+
+hope this like you =)
