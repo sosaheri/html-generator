@@ -42,7 +42,7 @@ Now if you want to create a image tag you can do this variations:
 
 if you want a image in html without id or class you do this:
 
-<img src="path" alt="description">
+* <img src="path" alt="description"> 
 
 the tag above can be done by this:
 
