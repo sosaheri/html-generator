@@ -2,13 +2,32 @@
     class r{
         static function _($tag=null,$content=null,$id=null,$clase=null){
             if(!isset($tag)){
-                #trigger_error("ingresa por lo menos el primer parametro",E_USER_ERROR);
-                echo "ingresa por lo menos el primer parametro";
+                return "ingresa por lo menos el primer parametro";
             }else{
-
+                ########################IMGAGES BLOCK############################################################################
+                if($tag === 'img' && !isset($content) && !isset($id) && !isset($clase)){
+                    return "Las imagenes necesitan una ruta para localizar el archivo";
+                }else if($tag === 'img' && isset($content) && !isset($id) && !isset($clase)){
+                    return "ademas de la ruta y nombre del archivo es buena practica agregar texto al atributo alt";
+                }else if($tag === 'img' && isset($content) && isset($id) && !isset($clase)){
+                    return "<{$tag} src=\"{$content}\" alt=\"{$id}\">";
+                }else if($tag === 'img' && isset($content) && isset($id) && isset($clase)){
+                    if(is_array($clase) && sizeof($clase) == 2){
+                        return "<{$tag} src=\"{$content}\" alt=\"{$id}\" id=\"{$clase[0]}\" class=\"{$clase[1]}\">";
+                    }else if(is_array($clase) && sizeof($clase) < 2){
+                        return "al usar un arreglo se utiliza la primer posicion para el id y la segunda para la clase";
+                    }else{
+                        if(strpos($clase,'id')){
+                            $str = substr("name-id", 0, -3);
+                            return "<{$tag} src=\"{$content}\" alt=\"{$id}\" id=\"{$str}\">";
+                        }else{
+                            return "<{$tag} src=\"{$content}\" alt=\"{$id}\" class=\"{$clase}\">";
+                        }
+                    }
+                }else{
+                #############################FORMS BLOCK################################################################################
                 if($tag === 'form' && !isset($content) && !isset($id) && !isset($clase)){
-                    #trigger_error("especifica el action, method y los input",E_USER_ERROR);
-                    echo "especifica el action, method y los input";
+                    return "especifica el action, method y los input";
                 }else if($tag === 'form' && isset($content) && isset($id) && isset($clase)){
                     if(is_array($content)){
                         $formulario = "<{$tag} action=\"{$id}\" method=\"{$clase}\">";
@@ -18,18 +37,18 @@
                         $formulario .= "</{$tag}>";
                         return $formulario;
                     }else{
-                        echo "los formularios llevan inputs para funcionar";
+                        return "los formularios llevan inputs para funcionar";
                     }
                 }else if($tag === 'input' && isset($content) && isset($id) && isset($clase)){
                     if(is_array($content)){
-                        echo "los inputs no pueden llevar contenido dentro solo atributos";
+                        return "los inputs no pueden llevar contenido dentro solo atributos";
                     }else{
                         return "<{$tag} type=\"{$content}\" name=\"{$id}\" id=\"{$clase}\">";
                     }
                 }else if($tag === 'input' && $content === 'submit' && isset($id) && !isset($clase)){
                     return "<{$tag} type=\"{$content}\" value=\"{$id}\">";
                 }else{
-                ############################################################################################################################
+                ##########################################GENERAL TAGS BLOCK##########################################################
                 if(isset($id) && isset($clase) && isset($content)){
                     if(is_array($content)){
                         $estructura = "<{$tag} id=\"{$id}\" class=\"{$clase}\">";
@@ -95,9 +114,10 @@
                         }
                     }
                 }
-                ############################################################################################################################
+                #########################################################################################################################
                 }
-
+                #########################################################################################################################
+                }
             }
         }
     }
