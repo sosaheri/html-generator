@@ -25,5 +25,9 @@ you can repeat and combine all the variations whatever you want as many times as
 
 hope this make sense for you and i hope it is useful for you also.
 
+now r can make forms if you want to create a simple form with a text field and the submit button just use
+
+r::_('form',array(r::_('input','text','nombre','name'),r::_('input','submit','enviar')),'action.php','post');
+
 
 
