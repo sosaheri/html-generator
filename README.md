@@ -1,4 +1,9 @@
 # html-generator
+
+NOTA* al ver este documento fuera del editor probablemente en algunas lineas se omita el _ pero en la practica nunca debe de faltar el _
+porque _ es el nombre del metodo que realiza todas las operaciones r es el nombre de la clase que contiene al metodo _ y como es un metodo estatico
+se utilizan :: para llamar al metodo de la clase.
+
 just use this class for make html tags or your own xhml tags 
 
 for example how to make a div:
